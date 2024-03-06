@@ -1,0 +1,67 @@
+FROM ubuntu:22.04
+LABEL author="snitkin.d@list.ru"
+LABEL version="1.0"
+LABEL description="Container for the homework 1 in Computing Infrastructure in Bioinformatics Problems, HSE, 2022"
+# Apt packages installation
+RUN apt-get update && \
+    # apt-utils
+    apt-get -y --no-install-recommends install apt-utils=2.4.8 && \
+    # apt-transport-https
+    apt-get -y --no-install-recommends install apt-transport-https=2.4.8 && \
+    # Wget
+    apt-get -y --no-install-recommends install wget=1.21.2-2ubuntu1 && \
+    # Unzip
+    apt-get -y --no-install-recommends install unzip=6.0-26ubuntu3.1 && \
+    # Python 3 with pip
+    apt-get -y --no-install-recommends install python3-pip=22.0.2+dfsg-1 && \
+    # Java
+    apt-get -y --no-install-recommends install openjdk-11-jdk=11.0.17+8-1ubuntu2~22.04 && \
+    apt-get -y --no-install-recommends install xvfb=2:21.1.3-2ubuntu2.3 && \
+    # Perl
+    apt-get -y --no-install-recommends install perl=5.34.0-3ubuntu1.1 && \
+    # libgomp1 & libtbb12 (needed for salmon)
+    apt-get -y --no-install-recommends install libgomp1=12.1.0-2ubuntu1~22.04 && \
+    apt-get -y --no-install-recommends install libtbb12=2021.5.0-7ubuntu2 && \
+    # Delete the apt-get lists
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+# Create /.bashrc for aliases
+# Execute ". /.bashrc" command right after the container is run
+RUN touch /.bashrc
+# FastQC v0.11.9
+RUN wget https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.9.zip && \
+    unzip fastqc_v0.11.9.zip && \
+    rm fastqc_v0.11.9.zip && \
+    chmod a+x /FastQC/fastqc && \
+    echo 'alias fastqc="/FastQC/fastqc"' >> /.bashrc # && \
+# STAR v2.7.10b
+RUN wget https://github.com/alexdobin/STAR/releases/download/2.7.10b/STAR_2.7.10b.zip && \
+    unzip ./STAR_2.7.10b.zip && \
+    rm ./STAR_2.7.10b.zip && \
+    chmod a+x ./STAR_2.7.10b/Linux_x86_64_static/STAR ?? \
+    mv ./STAR_2.7.10b/Linux_x86_64_static/STAR /bin/STAR && \
+    rm -r ./STAR_2.7.10b
+# samtools v1.16.1
+RUN wget https://github.com/samtools/samtools/archive/refs/tags/1.16.1.zip -O ./samtools-1.16.1.zip && \
+    unzip ./samtools-1.16.1.zip && \
+    rm ./samtools-1.16.1.zip && \
+    mv ./samtools-1.16.1/misc /samtools && \
+    rm -r ./samtools-1.16.1 && \
+    echo 'alias samtools="/samtools/samtools.pl"' >> /.bashrc
+# picard v2.27.5
+RUN wget https://github.com/broadinstitute/picard/releases/download/2.27.5/picard.jar -O /bin/picard.jar && \
+    chmod a+x /bin/picard.jar && \
+    echo 'alias picard="java -jar /bin/picard.jar"' >> /.bashrc
+# bedrools v2.30.0
+RUN wget https://github.com/arq5x/bedtools2/releases/download/v2.30.0/bedtools.static.binary -O /bin/bedtools.static.binary && \
+    chmod a+x /bin/bedtools.static.binary && \
+    echo 'alias bedtools="/bin/bedtools.static.binary"' >> /.bashrc
+# MultiQC v1.13
+RUN pip install multiqc==1.13
+# salmon v1.9.0
+RUN wget https://github.com/COMBINE-lab/salmon/releases/download/v1.9.0/salmon-1.9.0_linux_x86_64.tar.gz && \
+    tar -zxvf ./salmon-1.9.0_linux_x86_64.tar.gz && \
+    rm salmon-1.9.0_linux_x86_64.tar.gz && \
+    chmod a+x ./salmon-1.9.0_linux_x86_64/bin/salmon && \
+    mv ./salmon-1.9.0_linux_x86_64/bin/salmon /bin/salmon && \
+    rm -r ./salmon-1.9.0_linux_x86_64
