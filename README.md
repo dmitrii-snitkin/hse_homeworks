@@ -7,3 +7,5 @@ This repository contains some homeworks done by me during my study at Higher Sch
 ## [2. Anaconda and Docker](2_anaconda_and_docker)
 
 ## [3. Genome browser on a remote server](3_genome_browser)
+
+## [4. Improve the `image` R function](4_r_image_function)
