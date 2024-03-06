@@ -15,3 +15,5 @@ This repository contains some homeworks done by me during my study at Higher Sch
 ## [6. PDB structure analysis](6_pdb_structure_analysis)
 
 ## [7. Molecular dynamics](7_molecular_dynamics)
+
+More materials from my incredible study at Higher School of Economics ❤️ are available on my [Google Drive](https://drive.google.com/drive/folders/191-jrXR1OjxwuaY07bzjxCfp4G3aPd2p?usp=drive_link).
