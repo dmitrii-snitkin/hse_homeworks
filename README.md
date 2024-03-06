@@ -1,6 +1,6 @@
 # Homeworks from HSE
 
-This repository contains only some out of numerous homeworks done by me during my study at Higher School of Economics during the Master’s programme [“Data Analysis in Biology and Medicine”](https://www.hse.ru/en/ma/adbm/).
+This repository contains some homeworks done by me during my study at Higher School of Economics in the Master’s programme [“Data Analysis in Biology and Medicine”](https://www.hse.ru/en/ma/adbm/).
 
 ## [1. Implement Needleman–Wunsch algorithm](1_needleman_wunsch)
 
@@ -9,3 +9,5 @@ This repository contains only some out of numerous homeworks done by me during m
 ## [3. Genome browser on a remote server](3_genome_browser)
 
 ## [4. Improve the `image` R function](4_r_image_function)
+
+## [5. Variant discovery](5_variant_discovery)
