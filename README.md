@@ -13,3 +13,5 @@ This repository contains some homeworks done by me during my study at Higher Sch
 ## [5. Variant discovery](5_variant_discovery)
 
 ## [6. PDB structure analysis](6_pdb_structure_analysis)
+
+## [7. Molecular dynamics](7_molecular_dynamics)
