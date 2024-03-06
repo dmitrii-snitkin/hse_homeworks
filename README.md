@@ -5,3 +5,5 @@ This repository contains some homeworks done by me during my study at Higher Sch
 ## [1. Implement Needleman–Wunsch algorithm](1_needleman_wunsch)
 
 ## [2. Anaconda and Docker](2_anaconda_and_docker)
+
+## [3. Genome browser on a remote server](3_genome_browser)
