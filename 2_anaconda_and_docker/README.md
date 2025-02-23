@@ -188,7 +188,7 @@ RUN wget https://github.com/COMBINE-lab/salmon/releases/download/v1.9.0/salmon-1
 ---
 
 
-## 6. Use [hadolint](https://hadolint.github.io/hadolint/) litner to remove as many reported warnings as possible.
+## 6. Use [hadolint](https://hadolint.github.io/hadolint/) linter to remove as many reported warnings as possible.
 
 The list of changes:
 
