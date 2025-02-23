@@ -48,7 +48,7 @@ Install the particular versions of the tools:
 
 I failed to install picard of the 2.27.5 version, because the latest version of it in Conda is 2.27.
 
-## 3. Export `conda` environment to the **environment.yml** file. Recover the invironment on the basis of this file.
+## 3. Export `conda` environment to the **environment.yml** file. Recover the environment on the basis of this file.
 
 Export the environment to the **environment.yml** file:
 
@@ -80,7 +80,7 @@ Delete the dependencies environment:
 
 `conda env remove -n dependencies`
 
-Recover the invironment on the basis of the [**environment.yml**](environment.yml) file:
+Recover the environment on the basis of the [**environment.yml**](environment.yml) file:
 
 `conda env create -n dependencies --file environment.yml`
 
